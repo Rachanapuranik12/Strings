@@ -1,31 +1,28 @@
 class mycompareTo{
 
-	static int mycompareTo(String str1, String str2){
 
-		int len1 = str1.length();
-		int len2 = str2.length();
+        public static int mycompareTo(String str1, String str2) {
+    int minLength = Math.min(str1.length(), str2.length());
 
-		for(int i=0;i<len1;i++){
-			for(int j=0;j<len2;j++){
+    // Iterate through each character of the strings
+    for (int i = 0; i < minLength; i++) {
+        char char1 = str1.charAt(i);
+        char char2 = str2.charAt(i);
 
-				if(str1.charAt(i)>str2.charAt(j)){
-					return str1.charAt(i) - str2.charAt(j);
-				}else if(str2.charAt(j)>str1.charAt(i)){
-					return str2.charAt(j) - str1.charAt(i);
-				}else{
-					return 0;
-				}
-			}
-		
-		}
-		return 0;
-	}
+        // Compare characters
+        if (char1 != char2) {
+            return char1 - char2;
+        }
+    }
 
-	public static void main(String[] args){
+    // If the common prefix is the same, return the difference in lengths
+    return str1.length() - str2.length();
+}
+        public static void main(String[] args){
 
-		String str1 = "cello";
-		String str2 = "hello";
+                String str1 = "mychar";
+                String str2 = "myc";
 
-		System.out.println(mycompareTo(str1,str2));
-	}
+                System.out.println(mycompareTo(str1,str2));
+        }
 }
