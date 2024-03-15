@@ -1,13 +1,29 @@
-class StringsDemo{
+/* Take an array of Strings input from the user & find the cumulative (combined) length of all those strings.
+ */
 
-	public static void main(String[] args){
+import java.io.*;
+class Problem1{
 
-		String str1 = "Core2Web";  //goes in SCP - String Constant Pool
-		String str2 = new String("Core2Web"); //goes in heap section
+	public static void main(String[] args) throws IOException {
 
-		char str3[] = {'C','2','W'}; //char array will go internally as int only.
-		System.out.println(str1);
-		System.out.println(str2);
-		System.out.println(str3);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Enter size of array");
+		int size = Integer.parseInt(br.readLine());
+
+		String arr[] = new String[size];
+
+		int len=0;
+
+		System.out.println("Enter Strings:");
+
+		for(int i=0;i<size;i++){
+			arr[i] = br.readLine();
+
+			len = len+arr[i].length();
+		}
+
+		System.out.println(len);
 	}
 }
+

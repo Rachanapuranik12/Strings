@@ -1,28 +1,28 @@
-class StringDemo{
-	public static void main(String[] args){
-	
-	String str1 = "Core2Web";
+/* Input a string from the user. Create a new string called ‘result’ in which you will replace the letter ‘e’ in the original string with letter ‘i’. 
+Example : 
+original = “eabcdef’ ; result = “iabcdif”
+Original = “xyz” ; result = “xyz”
+*/
 
-	String str2 = new String("Core2Web");
+import java.io.*;
+class Problem2{
 
-	String str3 = "Core2Web";
+	public static void main(String[] args) throws IOException{
 
-	String str4 = new String("Core2Web");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter a string");
+		String str = br.readLine();
 
-	System.out.println(System.identityHashCode(str1));
+		String result="";
 
-	System.out.println(System.identityHashCode(str2));
+		for(int i=0;i<str.length();i++){
+			if(str.charAt(i)=='e'){
+				result = result+'i';
+			}else{
+				result = result+str.charAt(i);
+			}
+		}
 
-	System.out.println(System.identityHashCode(str3));
-
-	System.out.println(System.identityHashCode(str4));
-
+		System.out.println(result);
 	}
 }
-
-/* Hashcode - gives a unique number to every object
- * str1 and str3 goes in scp and in scp no duplicate objects are there so if both strings are having same content
- * then only 1 object will be created - so str1 and str3 hashcode will be same.
- * str2 and str4 both are created using new keyword so whenever new keyword is used a new object will be created everytime
- * even if content is same.
- */
